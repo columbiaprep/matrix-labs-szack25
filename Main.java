@@ -16,7 +16,26 @@ public class Main {
         }
         return output;
     }
-    int multiplyMatrices(int[][] matrix1, int[][] matrix2) {
+    int[][] multiplyMatrices(int[][] matrix1, int[][] matrix2) {
+        int matrix1Rows = matrix1.length;
+        int matrix1Cols = matrix1[0].length;
+        int matrix2Cols = matrix2[0].length;
 
+        if (matrix1Rows != matrix2Cols) {
+            System.out.println("Invalid array");
+            return matrix1;
+        }
+    
+        int[][] result = new int[matrix1Rows][matrix2Cols];
+    
+        for (int i = 0; i < matrix1Rows; i++) {
+            for (int j = 0; j < matrix2Cols; j++) {
+                for (int k = 0; k < matrix1Cols; k++) {
+                    result[i][j] += matrix1[i][k] * matrix2[k][j];
+                }
+            }
+        }
+    
+        return result;
     }
 }
