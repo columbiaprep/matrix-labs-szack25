@@ -38,4 +38,24 @@ public class Main {
     
         return result;
     }
+    int determinant(int[][] input) {
+        // If matrix is 3x3 then use the determinant equation for that
+        if (input.length == 3) {
+            if (input.length!=3||input[0].length!=3){
+                int det = 0;
+                if (input.length!=3||input[0].length!=3){
+                    return det;
+                }
+                det = input[0][0]*(input[1][1]*input[2][2]-input[1][2]*input[2][1])-
+                        input[0][1]*(input[1][0]*input[2][2]-input[1][2]*input[2][0])+
+                        input[0][2]*(input[1][0]*input[2][1]-input[1][1]*input[2][0]);
+                return (det);
+            }
+        }
+        // Else if it is 2x2 use that equation
+        else if (input.length == 2) {
+            return ((input[0][0]*input[1][1])-(input[0][1]*input[1][0]));
+        }
+        return 0;
+    }   
 }
